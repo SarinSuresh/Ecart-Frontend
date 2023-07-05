@@ -1,0 +1,193 @@
+<!-- Empty Cart -->
+
+<div class="container" *ngIf="allCart.length==0">
+  <div class="row">
+    <div class="col">
+      <img
+        src="https://img.freepik.com/free-photo/looking-happy-astonished-surprised_1194-406819.jpg?w=1380&t=st=1688152803~exp=1688153403~hmac=37377507db61ad5d4cbb9b0da96b3a0455642a86ee3f70066b340f476067f84a"
+        width="100%" height="500px
+      " alt="">
+      <h2 style="text-align: center;">Your Cart is Empty, Please add your products!</h2>
+      <button routerLink="products" style="margin-left: 600px;" class="btn btn-dark mb-3">Shop More</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Cart Content -->
+<h3 id="h3tag">Shopping Cart</h3>
+<p style="color: #007185; margin-left: 100px;">Deselect all items</p>
+<p id="price">Price</p>
+<div class="container">
+  <hr id="horizon">
+</div>
+<div class="container" *ngFor="let cart of allCart">
+  <div class="row">
+    <div class="col-3">
+      <img id="image" [src]="cart.image" alt="">
+    </div>
+    <div class="col-6">
+      <p style="font-size: 22px;">{{cart.title}}
+      <p>
+      <p style="font-size: smaller;" class="text-success">In stock</p>
+      <p id="para">Eligible for FREE Shipping</p>
+      <img id="icon" src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png" alt="">
+      <p>{{cart.category}}</p>
+      <form>
+        <input id="inp" type="checkbox">This will be a gift <span style="color: #007185; font-size: small;">learn
+          more</span>
+      </form>
+    </div>
+    <div class="col-3">
+      <h5 style="font-weight: 400; margin-left: 200px;"><span
+          style="font-size: smaller; font-weight: 500;">&#8377;</span>{{cart.grandTotal}}
+      </h5>
+    </div>
+
+
+    <!-- Quantity -->
+
+    <div class="col-12">
+      <div class="d-flex">
+        <div>
+          <p style="margin-top: 20px; border-color: white; font-weight: 400;" class="text-dark">Qty :</p>
+        </div>
+        <div style="margin-left: -120px;" class="input-group w-auto justify-content-end align-items-center">
+          <input (click)="decrementsCart(cart.id)" type="button" value="-"
+            class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+          <input [value]="cart.quantity" type="number" step="1" max="10" value="1" name="quantity"
+            class="quantity-field border-0 text-center w-25">
+          <input (click)="incrementsCart(cart.id)" type="button" value="+"
+            class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div id="sidespan"><span><a href="" (click)="deleteCart(cart.id)">Delete &nbsp;</a>|&nbsp;&nbsp;<a href="">Save for
+        later&nbsp;&nbsp;</a>|&nbsp; <a href="">See more like this</a>&nbsp;&nbsp;| &nbsp;<a href="">Share</a>
+      &nbsp;</span>
+  </div>
+  <hr style="margin-top: 30px;">
+</div>
+
+<p style="margin-left: 1200px;">Subtotal : &nbsp;<span style="font-weight: 500; font-size: 20px;"><span
+      style="font-size: 10px;">&#8377;</span>{{totalPrice}}</span>
+</p>
+
+<div>
+
+  <button style="margin-left: 1150px; margin-bottom: 30px; width: 250px; border-radius: 12px;" class="btn btn-warning"
+    data-bs-toggle="modal" data-bs-target="#staticBackdrop">Proceed to Buy</button>
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div style="width: 500px;" class="modal-content">
+        <div class="modal-header">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png"
+            width="100px" height="30px" alt="">
+          <h1 style="margin-left: 100px;" class="modal-title fs-5" id="staticBackdropLabel">Checkout</h1>
+          <button (click)="modalClose()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3 *ngIf="!paymentStatus" class="text-center">Enter your address Details</h3>
+          <form *ngIf="!paymentStatus" [formGroup]="cartForm" (ngSubmit)="submitForm()">
+            <div class="form-floating mb-2">
+              <input name="name" formControlName="name" type="text" class="form-control" placeholder="name@example.com"
+                required>
+              <div *ngIf="this.cartForm.get('name')?.errors && this.cartForm.get('name')?.touched" class="text-danger">
+                Invalid Name </div>
+              <label>Entert Your Name</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input name="house" formControlName="house" type="text" class="form-control" placeholder="Password"
+                required>
+              <div *ngIf="this.cartForm.get('house')?.errors && this.cartForm.get('house')?.touched"
+                class="text-danger">Invalid House Number</div>
+              <label>House Number</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input name="street" formControlName="street" type="text" class="form-control" placeholder="Password"
+                required>
+              <div *ngIf="this.cartForm.get('street')?.errors && this.cartForm.get('street')?.touched"
+                class="text-danger">Invalid Street Name</div>
+              <label>Street Name</label>
+            </div>
+            <div class="form-floating mb-2 ">
+              <input name="state" formControlName="state" type="text" class="form-control" placeholder="Password"
+                required>
+              <div *ngIf="this.cartForm.get('state')?.errors && this.cartForm.get('state')?.touched"
+                class="text-danger">Invalid State</div>
+              <label>state</label>
+            </div>
+            <div class="form-floating mb-2">
+
+              <input name="pincode" formControlName="pincode" type="text" class="form-control" placeholder="Password"
+                required>
+              <div *ngIf="this.cartForm.get('pincode')?.errors && this.cartForm.get('pincode')?.touched"
+                class="text-danger">Invalid pincode</div>
+              <label>pincode</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input name="mobile" formControlName="mobile" type="text" class="form-control" placeholder="Password"
+                required>
+              <div *ngIf="this.cartForm.get('mobile')?.errors && this.cartForm.get('mobile')?.touched"
+                class="text-danger">Invalid Mobile Number</div>
+              <label>Mobile Number</label>
+            </div>
+
+            <!-- discount -->
+            <div *ngIf="offerClick && !discountStatus">
+              <!-- 10% -->
+              <img *ngIf="totalPrice<300" (click)="discount(10)" width="250px" height="250px"
+                src="https://couponswala.com/blog/wp-content/uploads/2021/11/Simple-Ways-to-avail-Amazon-Discounts.jpg"
+                alt="">
+              <!-- 50% -->
+              <img *ngIf="totalPrice>300" (click)="discount(50)" width="150px" height="150px"
+                src="https://www.optimbirou.ro/wp-content/uploads/2016/12/Dollarphotoclub63832907-1.jpg" alt="">
+            </div>
+            <div>
+
+              <button type="submit" (click)="offerClick()" class=" btn text-info">Offers <i
+                  class="fa-sharp fa-solid fa-tags fa-beat"></i></button>
+              <p style="margin-left: 300px;" class=""> Total Amount:&nbsp;&nbsp;<span
+                  style="font-size: larger; font-weight: 500;">&#8377;{{totalPrice}}</span></p>
+            </div>
+
+
+          </form>
+          <!-- user details -->
+          <div *ngIf="paymentStatus">
+            <h5>User Address</h5>
+            <p>{{username}}</p>
+            <p>{{house}}</p>
+            <p>{{address}}</p>
+            <p>{{Pincode}}</p>
+            <p>{{phone}}</p>
+            <div class="text-center">
+              <button (click)="makepay()" class="btn btn-warning">Proceed to pay</button> <br><br>
+              <div *ngIf="proceedtopay">
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button style="border-radius: 15px;" type="button" class="btn btn-secondary"
+            data-bs-dismiss="modal">Back</button>
+          <div>
+            <button style="border-radius: 15px;" type="submit" class="btn btn-primary"
+              (click)="submitForm()">Payment</button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

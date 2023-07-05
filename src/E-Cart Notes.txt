@@ -1,0 +1,40 @@
+                                    
+                                    
+                                    E-Cart FrontEnd
+                                -----------------------
+
+
+        1. Create a folder ECart
+        2. Inside in it Create a Angular Application - ng new e-cart - FrontEnd
+        3. cd e-cart - FrontEnd
+        4. code .
+        5. Run Angular Application ng s -o
+        6. Clear code in app.component.html
+        7. Import 3rd party Libraries
+
+                ->Bootstrap (Index.html)
+                ->Font-Awesome (index.js)
+                ->google Fonts (style.css)
+        
+        8. lazzy Loading
+
+           -Lazy Loading helps to keep initial bundle six=ze smaller
+            which in turn helps decrease load times 
+           -Lazy loading is an approach to limit the modules that are loaded to the ones that the user currently needs.
+           This can improve your applications performance and reduce the initial bundle size.
+
+        we have one module in our application - app.module
+        here we create another module - ng g m products --route products -- module app.module
+
+        9. Component Generation
+
+            ->ng g c products/allProducts
+            ->ng g c products/viewProducts
+            ->ng g c products/wishlist
+            ->ng g c products/cart
+            Not in Lazzy Loading
+            ->ng g c header
+            ->ng g c footer
+            ->ng g c PageNotFound
+
+    

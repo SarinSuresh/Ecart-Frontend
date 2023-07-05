@@ -1,0 +1,68 @@
+<header id="head">
+    <div class="first">
+        <div class="flex logo">
+            <a href=""><img src="../assets/amazon.png" alt=""></a>
+            <div class="map flex">
+                <i class="fa-sharp fa-solid fa-location-dot" style="color: #ffffff;"></i>
+                <div>
+                    <span>Hello,<br>Select your Address</span>
+                </div>
+            </div>
+        </div>
+        <div id="whole" class="flex input">
+            <div>
+                <span>All</span>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <input type="text">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="flex right">
+            <div class="flex lang">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_India.png" alt="">
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="dropdown">
+                <button routerLink="products/signin" class="dropbtn" style="font-size: 12px;">Hello,sign in <p style="font-size: 16px;">Account &
+                        Lists <i class="fa-solid fa-caret-down" style="color: #ffffff;"></i></p>
+                    <div class="dropdown-content" style="text-align: center;">
+                    </div>
+                </button>
+            </div>
+            <div class="sign">
+                <span>Returns</span>
+                <span>& Orders</span>
+            </div>
+            <div routerLink="products/cart" class="flex cart">
+                <i class="fas fa-shopping-cart" ></i>&nbsp;
+                <span class="ca">Cart</span> &nbsp;<span
+                    style="margin-top: -10px; color: #f08804; font-weight: 900;">{{cartItemsCount}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="second">
+        <div class="second-1">
+            <div>
+                <i class="fas fa-bars"></i>
+                <span>All</span>
+            </div>
+        </div>
+        <div class="second-2">
+            <ul>
+                <li>Today's Deal</li>
+                <li>Customer Service</li>
+                <li>Registry</li>
+                <li>Gift Cards</li>
+                <li>Sell</li>
+                <li>Amazon mini TV</li>
+                <li>Gift card</li>
+                <li>Subscribe & save</li>
+                <li>Buy Again</li>
+                <li>Gift Ideas</li>
+                <li [routerLink]="['./products/wishlist']">Wishlist</li>
+            </ul>
+        </div>
+        <div class="second-3">
+            <span>Shop Valentine's Day</span>
+        </div>
+    </div>

@@ -1,0 +1,95 @@
+
+body {
+    background-color: #EAEDED;
+    width: 100%;
+}
+  
+.container {
+    margin-top: 60px;
+}
+
+#image {
+    width: 150px;
+    height: 120px;
+    transition: transform 0.3s ease;
+}
+
+#para {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+#icon {
+    margin-top: -30px;
+}
+
+#inp {
+    margin-top: -40px;
+    font-size: 7px;
+}
+
+.col-6 {
+    margin-left: -100px;
+}
+
+#myform {
+    text-align: center;
+    padding: 5px;
+    border: 1px dotted #ccc;
+    margin: 2%;
+}
+
+input.qtyplus { width:25px; height:25px;}
+input.qtyminus { width:25px; height:25px;}
+
+.btn-group {
+    width: 100px;
+    height: 30px;
+}
+
+.qty {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+/* #quantity {
+    border-radius: 5px;
+} */
+
+#sidespan {
+    margin-left: -100px;
+    margin-top: -40px;
+    font-size: small;
+    text-align: center;
+}
+
+#sidespan a {
+    text-decoration: none;
+    color: #007185!important;
+}
+
+
+#h3tag {
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+#price {
+    margin-left: 1220px;
+    margin-bottom: -60px;
+    
+}
+
+.row {
+    margin-top: 40px;
+    border-color: white;
+}
+
+#incdec input {
+    padding: 10px;
+    text-align: center;
+}
+.col {
+    margin-top: 60px;
+}

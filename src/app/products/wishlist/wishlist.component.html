@@ -1,0 +1,45 @@
+<div class="container" *ngIf="wishlist.length==0">
+    <img id="wish" src="https://ibella.us/admin_assets/CustomImage/wishlist-empty.jpg" width="100%" alt="">
+</div>
+
+
+<div class="container" *ngIf="wishlist.length!==0">
+    <div class="row" *ngFor="let wishlist of wishlist">
+        <div class="col-3">
+            <img id="image" [src]="wishlist.image" alt="">
+        </div>
+        <div class="col-6">
+            <h5 style="color: #007185;">{{wishlist.title}}</h5>
+            <div class="ratings">&nbsp;
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star rating-color"></i>
+                <i class="fa fa-star"></i> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #007185;">25,560
+                    &nbsp;&nbsp;
+                    ratings</span>
+            </div>
+            <p id="price">&#8377;{{wishlist.price}}</p> <span><img id="id1"
+                    src="https://storage.googleapis.com/mw-imagelibrary/amazon-choice.png" alt="">
+                <p id="delivery">FREE Delivery <span style="color: #007185;">Details</span></p>
+            </span>
+            <p style="font-weight: 500; margin-top: -30px;">Price dropped 28%</p>
+
+        </div>
+        <div class="col-3" id="buttons">
+            <p style="margin-left: 35px;">item added 26 june 2023</p>
+            <button (click)="addToCart(wishlist.id)" id="but1" class="btn btn-outline-dark flex-shrink-0" type="button">
+                Add to cart
+            </button> <br>
+            <button id="but2" class=" " type="button">
+                Move
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><button (click)=" deleteWishlist(wishlist.id)" id="but3" class="" type="button">
+                    Delete
+                </button></span>
+            <p style="color: #007185; margin-top: 20px; font-size: smaller; margin-left: 38px;">Add comment, quantity &
+                priority</p>
+        </div><br><br><br><br>
+        <hr style="margin-top: 40px;">
+    </div>
+</div>

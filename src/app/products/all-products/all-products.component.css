@@ -1,0 +1,44 @@
+#carouselExampleInterval{
+    width:100%;
+    overflow: hidden;
+    position: relative;
+    height: 660px;
+    
+}
+.container {
+    margin-top: 70px;
+   
+}
+
+.card-img-top {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    height: 230px;
+    
+}
+
+.rating-color{
+    color:#fbc634 !important;
+}
+
+.card {
+    background-color: #F7F7F7;
+    border: #ffffff;
+}
+
+.carousel-inner {
+    width: 100%;
+    z-index: -1;
+    margin-bottom: -150px;
+}
+
+.sec-1{
+    position: relative;
+    width:100%;
+    height: 1150px;
+    box-sizing: border-box;
+}
+
+
+
